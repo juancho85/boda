@@ -5,7 +5,19 @@ angular.module('bodaJsApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    }];
+    },
+      {
+        'title': 'Info práctica',
+        'link': '/info'
+      },
+      {
+        'title': 'Confirmación asitencia',
+        'link': '/asistencia'
+      },
+      {
+        'title': 'viaje de bodas',
+        'link': '/viaje'
+      }];
 
     $scope.isCollapsed = true;
 
