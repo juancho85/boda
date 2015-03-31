@@ -40,7 +40,11 @@ angular.module('bodaJsApp')
     $scope.getAsistencias = function(){
       console.log('getAsistencias called');
       $http.get('/api/asistencias').success(function(asistencias) {
-        console.log('asistencias received'+ asistencias);
+        //console.log('asistencias received '+ asistencias);
+        //console.log('asistencias[0].name '+ asistencias[0].name);
+        //console.log('asistencias[0].isAssisting '+ asistencias[0].isAssisting);
+        //console.log('asistencias[0].arrivalDate '+ asistencias[0].arrivalDate);
+        //console.log('asistencias[0].departureDate '+ asistencias[0].departureDate);
         $scope.asistencias = asistencias;
       });
     };
@@ -53,10 +57,12 @@ angular.module('bodaJsApp')
       }
       $http.post('/api/asistencias', $scope.newAsistencia );
       $scope.newAsistencia = '';
+      $scope.getAsistencias();
     };
 
     $scope.deleteAsistencia = function(asistencia) {
       $http.delete('/api/asistencias/' + asistencia._id);
+      $scope.getAsistencias();
     };
 
   });
