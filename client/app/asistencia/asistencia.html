@@ -1,4 +1,57 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-<div class="col-md-12">
-Asistencia: en construcción.
+<div class="container">
+  <div class="row">
+    <h1>¿Vienes a la boda?</h1>
+  </div>
+
+  <!-- Todos input -->
+  <form role="form" ng-submit="addAsistencia()">
+    <div class="row">
+      <h3>Nombre y apellidos</h3>
+      <input type="text" ng-model="newAsistencia.name" placeholder="nombre" class="form-control">
+    </div>
+    <div class="row">
+      <h3>¿Asisto?</h3>
+      <div class="btn-group">
+        <label class="btn btn-primary" ng-model="newAsistencia.isAssisting" btn-radio="true" uncheckable>Sí</label>
+        <label class="btn btn-primary" ng-model="newAsistencia.isAssisting" btn-radio="false" uncheckable>No</label>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Llegada a Madrid</h3>
+      <div class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{format}}" init-date="1/06/2015" ng-model="newAsistencia.arrivalDate" is-open="aopened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="aopen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+      </div>
+    </div>
+    <div class="row">
+      <h3>Partida</h3>
+      <div class="input-group">
+        <input type="text" class="form-control" datepicker-popup="{{format}}" init-date="7/06/2015" ng-model="newAsistencia.departureDate" is-open="dopened" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="dopen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+      </div>
+    </div>
+    <br/>
+    <div class="row">
+      <input type="submit" class="btn btn-primary pull-right" value="Guardar">
+    </div>
+  </form>
+
+  <h3>Ya han confirmado</h3>
+  <div ui-sortable ng-model="asistencias">
+    <p class="input-group" ng-repeat="invitado in asistencias" style="padding:5px 10px; cursor: move;">
+      <input type="text" ng-model="invitado.name">
+      <input type="date" ng-model="invitado.arrivalDate">
+      <input type="date" ng-model="invitado.departureDate">
+      <input type="text" ng-model="invitado.isAssisting">
+      <span class="input-group-btn">
+      <button class="btn btn-danger" ng-click="deleteAsistencia(invitado)" aria-label="Remove">X</button>
+      </span>
+    </p>
+  </div>
+
 </div>
