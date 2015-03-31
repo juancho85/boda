@@ -11,11 +11,11 @@ angular.module('bodaJsApp')
         'link': '/info'
       },
       {
-        'title': 'Confirmación asitencia',
+        'title': 'Confirmación asistencia',
         'link': '/asistencia'
       },
       {
-        'title': 'viaje de bodas',
+        'title': 'Viaje de bodas',
         'link': '/viaje'
       }];
 

@@ -36,7 +36,7 @@ angular.module('bodaJsApp')
           },
           map: map,
           title:"Boda Mara y Juancho!",
-          icon: 'assets/wedding.png'
+          icon: 'assets/images/wedding.png'
         });
       } //end addMarker
     };
